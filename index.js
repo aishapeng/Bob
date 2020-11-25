@@ -6,24 +6,29 @@ const app = express()
 app.use(bodyParser.json())
 const port = process.env.PORT || 3000
 
-const functions = require('firebase-functions')
+
+// Set the configuration for your app
+// TODO: Replace with your project's config object
+// var firebaseConfig = {
+// apiKey: "AIzaSyC9I-rRaNpQZ1qXoGjfr7-fKt7Oz2HVBJc",
+// authDomain: "dragonflychatbotproject.firebaseapp.com",
+// databaseURL: "https://dragonflychatbotproject.firebaseio.com",
+// projectId: "dragonflychatbotproject",
+// storageBucket: "dragonflychatbotproject.appspot.com",
+// messagingSenderId: "64107841831",
+// appId: "1:64107841831:web:8ebf718148918a2f00c102",
+// measurementId: "G-5Q8CDSKD4S"
+// };
+// // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
+
+
 // The Firebase Admin SDK to access the Firebase Realtime Database.
 var admin = require("firebase-admin");
-
-var serviceAccount = require("./serviceAccount.json");
-
 admin.initializeApp({
     credential: admin.credential.applicationDefault(),
-    databaseURL: 'https://dragonflychatbotproject.firebaseio.com'
+    databaseURL: 'ws://dragonflychatbotproject.firebaseio.com'
   });
-
-// if(process.env.NODE_ENV === 'production'){
-//     //set static folder
-//     app.use(express.static('client/build'));
-// }
-// app.get('*',(request, response) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-// });
 
 app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
