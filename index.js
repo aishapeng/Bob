@@ -7,17 +7,11 @@ app.use(bodyParser.json())
 const port = process.env.PORT || 3000
 
 // The Firebase Admin SDK to access the Firebase Realtime Database.
-var admin = require('firebase-admin');
-var db = admin.initializeApp();
-// var refreshToken; // Get refresh token from OAuth2 flow
-// admin.initializeApp({
-//   credential: admin.credential.refreshToken(refreshToken),
-//   databaseURL: 'ws://dragonflychatbotproject.firebaseio.com'
-// });
-// admin.initializeApp({
-//     credential: admin.credential.applicationDefault(),
-//     databaseURL: 'ws://dragonflychatbotproject.firebaseio.com'
-//   });
+const admin = require('firebase-admin');
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(),
+  databaseURL:'ws://dragonflychatbotproject.firebaseio.com/'
+});
 
 app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
