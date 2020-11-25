@@ -1,10 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const {request} = require('http')
-const {response} = require('express')
-const app = express()
-const functions = require('firebase-functions')
 const {WebhookClient} = require('dialogflow-fulfillment');
+
+const app = express()
+app.use(bodyParser.json())
+const functions = require('firebase-functions')
 
 // The Firebase Admin SDK to access the Firebase Realtime Database.
 var admin = require("firebase-admin");
