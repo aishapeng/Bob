@@ -9,27 +9,28 @@ const port = process.env.PORT || 3000
 
 // Set the configuration for your app
 // TODO: Replace with your project's config object
-// var firebaseConfig = {
-// apiKey: "AIzaSyC9I-rRaNpQZ1qXoGjfr7-fKt7Oz2HVBJc",
-// authDomain: "dragonflychatbotproject.firebaseapp.com",
-// databaseURL: "https://dragonflychatbotproject.firebaseio.com",
-// projectId: "dragonflychatbotproject",
-// storageBucket: "dragonflychatbotproject.appspot.com",
-// messagingSenderId: "64107841831",
-// appId: "1:64107841831:web:8ebf718148918a2f00c102",
-// measurementId: "G-5Q8CDSKD4S"
-// };
-// // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
+var firebaseConfig = {
+apiKey: "AIzaSyC9I-rRaNpQZ1qXoGjfr7-fKt7Oz2HVBJc",
+authDomain: "dragonflychatbotproject.firebaseapp.com",
+databaseURL: "https://dragonflychatbotproject.firebaseio.com",
+projectId: "dragonflychatbotproject",
+storageBucket: "dragonflychatbotproject.appspot.com",
+messagingSenderId: "64107841831",
+appId: "1:64107841831:web:8ebf718148918a2f00c102",
+measurementId: "G-5Q8CDSKD4S"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 
 // The Firebase Admin SDK to access the Firebase Realtime Database.
-var admin = require("firebase-admin");
-var refreshToken; // Get refresh token from OAuth2 flow
-admin.initializeApp({
-  credential: admin.credential.refreshToken(refreshToken),
-  databaseURL: 'ws://dragonflychatbotproject.firebaseio.com'
-});
+var admin = require('firebase-admin');
+var app = admin.initializeApp();
+// var refreshToken; // Get refresh token from OAuth2 flow
+// admin.initializeApp({
+//   credential: admin.credential.refreshToken(refreshToken),
+//   databaseURL: 'ws://dragonflychatbotproject.firebaseio.com'
+// });
 // admin.initializeApp({
 //     credential: admin.credential.applicationDefault(),
 //     databaseURL: 'ws://dragonflychatbotproject.firebaseio.com'
