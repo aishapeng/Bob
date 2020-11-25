@@ -33,6 +33,7 @@ app.post('/dialogflow-fulfillment', (request, response) => {
 });
 
 app.get('/', (request, response) => {
+    response.send("GET Request Called") 
     console.log(`ok`)
 })
 
