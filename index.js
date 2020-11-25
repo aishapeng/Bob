@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { request } = require('http')
-const { response } = require('express')
+const {request} = require('http')
+const {response} = require('express')
 const app = express()
 const functions = require('firebase-functions')
 const {WebhookClient} = require('dialogflow-fulfillment');
@@ -24,7 +24,7 @@ if(process.env.NODE_ENV === 'production'){
     //set static folder
     app.use(express.static('client/build'));
 }
-app.get('*',(req, res) => {
+app.get('*',(request, response) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
@@ -32,7 +32,7 @@ app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
 });
 
-app.get(`/`, (request, response) => {
+app.get('/', (request, response) => {
     console.log(`ok`)
 })
 
