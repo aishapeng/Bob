@@ -20,6 +20,10 @@ app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
 })
 
+app.post('/', () => {
+    console.log("ok")
+})
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 })
