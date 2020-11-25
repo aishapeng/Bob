@@ -24,8 +24,8 @@ app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
 });
 
-app.get('/', (request, response) => {
-    console.log("ok")
+app.get(`/`, (request, response) => {
+    console.log(`ok`)
 })
 
 app.listen(port, () => {
