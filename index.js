@@ -22,9 +22,9 @@ const port = process.env.PORT || 3000
 
 app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
-})
+});
 
-app.get('/', () => {
+app.get('/', (request, response) => {
     console.log("ok")
 })
 
