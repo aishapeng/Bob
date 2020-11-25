@@ -7,11 +7,15 @@ const functions = require('firebase-functions')
 const {WebhookClient} = require('dialogflow-fulfillment');
 
 // The Firebase Admin SDK to access the Firebase Realtime Database.
-const admin = require('firebase-admin');
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./serviceAccount.json");
+
 admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
-  databaseURL:'ws://dragonflychatbotproject.firebaseio.com/'
-})
+    credential: admin.credential.applicationDefault(),
+    databaseURL: 'https://dragonflychatbotproject.firebaseio.com'
+  });
+
 
 app.use(bodyParser.json)
 const port = process.env.PORT || 3000
@@ -20,7 +24,7 @@ app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
 })
 
-app.post('/', () => {
+app.get('/', () => {
     console.log("ok")
 })
 
