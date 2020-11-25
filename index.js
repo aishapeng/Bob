@@ -8,9 +8,10 @@ const port = process.env.PORT || 3000
 
 // The Firebase Admin SDK to access the Firebase Realtime Database.
 const admin = require('firebase-admin');
+var serviceAccount = require('./serviceAccount.json');
 admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
-  databaseURL:'ws://dragonflychatbotproject.firebaseio.com/'
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "ws://dragonflychatbotproject.firebaseio.com/"
 });
 
 app.post('/dialogflow-fulfillment', (request, response) => {
